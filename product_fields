@@ -1,0 +1,64 @@
+id
+name
+description
+brand
+color
+weight
+internalCategories
+productType
+mainImageUrl
+status (ACTIVE/INACTIVE/DELETED)
+insertDate
+UpdateDate
+
+
+{
+    "id": "102",
+    "name": "Sony Laptop",
+    "description": "Sony laptop for better life",
+    "brand": "Sony",
+    "color": "Black",
+    "weight": "28.1",
+    "status": "INACTIVE",
+    "internalCategories": [
+        "Electronics",
+        "PC"
+    ],
+    "productType": "Accessories",
+    "mainImageUrl": "https://www.google.com"
+},
+
+{
+    "id": "103",
+    "name": "Lenovo Laptop",
+    "description": "Lenovo laptop for better life",
+    "brand": "Lenovo",
+    "color": "Blue",
+    "weight": "28.1",
+    "status": "ACTIVE",
+    "internalCategories": [
+        "Watch",
+        "PC"
+    ],
+    "productType": "Accessories",
+    "mainImageUrl": "https://www.google.com"
+},
+
+{
+    "id": "104",
+    "name": "Realme Phone",
+    "description": "Mobile for better life",
+    "brand": "Realme",
+    "color": "Black",
+    "weight": "28.1",
+    "status": "DELETED",
+    "internalCategories": [
+        "Mobile",
+        "PC"
+    ],
+    "productType": "Accessories",
+    "mainImageUrl": "https://www.google.com"
+}
+
+-> api to change status
+-> soft delete accnd to status
