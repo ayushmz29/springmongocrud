@@ -24,7 +24,8 @@ public class ProductService {
     public List<Product> getActiveProducts() {
         ArrayList<Product> productsList = new ArrayList<>();
         productRepository.findAll().forEach(product -> {
-            if (product.getStatus() != Status.DELETED) {
+            Status productStatus = product.getStatus();
+            if (productStatus != Status.DELETED && productStatus != Status.INACTIVE) {
                 productsList.add(product);
             }
         });
@@ -42,7 +43,8 @@ public class ProductService {
     }
 
     public Product updateProduct(Product product) {
-        product = this.productRepository.findById(product.getId()).orElse(null);
+        Product oldProduct = this.productRepository.findById(product.getId()).orElse(null);
+        product.setInsertDate(oldProduct.getInsertDate());
         product.setUpdateDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         return productRepository.save(product);
     }

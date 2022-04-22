@@ -62,3 +62,6 @@ UpdateDate
 
 -> api to change status
 -> soft delete accnd to status
+
+-> cant undo the DELETE status
+-> Custom Query
