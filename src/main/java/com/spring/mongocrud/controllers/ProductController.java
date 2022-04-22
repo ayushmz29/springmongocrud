@@ -19,6 +19,12 @@ public class ProductController {
 
     @Autowired private ProductService productService;
 
+    @GetMapping("products/getAllProducts")
+    public List<Product> getAllProducts() {
+        List<Product> productList = productService.getAllProducts();
+        return productList;
+    }
+
     @GetMapping("/products")
     public List<Product> getActiveProducts() {
         List<Product> productList = productService.getActiveProducts();
@@ -28,13 +34,10 @@ public class ProductController {
 
     @PostMapping("/products/add")
     public ResponseEntity<?> addProduct(@RequestBody Product product) {
-        try
-        {
+        try {
             productService.addProduct(product);
-        }
-        catch (AlreadyPresentException ex)
-        {
-            return ResponseEntity.ok("Id already exist int the database...!");
+        } catch (AlreadyPresentException ex) {
+            return ResponseEntity.ok("Id already exist in the database...!");
         }
         return ResponseEntity.ok("Product Added");
     }
@@ -57,9 +60,5 @@ public class ProductController {
         return ResponseEntity.ok("Soft Deleted product with id " + id);
     }
 
-    @GetMapping("products/getAllProducts")
-    public List<Product> getAllProducts(){
-        List<Product> productList = productService.getAllProducts();
-        return productList;
-    }
+
 }

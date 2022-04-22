@@ -17,7 +17,7 @@ public class ProductService {
 
     @Autowired private ProductRepository productRepository;
 
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return new ArrayList<>(productRepository.findAll());
     }
 
@@ -32,9 +32,8 @@ public class ProductService {
     }
 
     public Product addProduct(Product product) throws AlreadyPresentException {
-        Product isExist=this.productRepository.findById(product.getId()).orElse(null);
-        if(isExist!=null)
-        {
+        Product isExist = this.productRepository.findById(product.getId()).orElse(null);
+        if (isExist != null) {
             throw new AlreadyPresentException();
         }
         product.setInsertDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
@@ -43,7 +42,7 @@ public class ProductService {
     }
 
     public Product updateProduct(Product product) {
-        product=this.productRepository.findById(product.getId()).orElse(null);
+        product = this.productRepository.findById(product.getId()).orElse(null);
         product.setUpdateDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         return productRepository.save(product);
     }
