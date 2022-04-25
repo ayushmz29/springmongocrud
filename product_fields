@@ -60,8 +60,11 @@ UpdateDate
     "mainImageUrl": "https://www.google.com"
 }
 
--> api to change status
--> soft delete accnd to status
+-> api to change status         !Done
+-> soft delete accnd to status  !Done
 
--> cant undo the DELETE status
+-> cant undo the DELETE status  !TODO
 -> Custom Query
+
+-> change only required fields
+-> kafka and docker
